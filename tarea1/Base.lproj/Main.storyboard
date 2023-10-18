@@ -17,29 +17,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jH2-6i-SZY">
-                                <rect key="frame" x="188" y="331" width="39" height="30"/>
-                                <color key="backgroundColor" name="AccentColor"/>
-                                <state key="normal" title="Jugar">
-                                    <color key="titleColor" systemColor="opaqueSeparatorColor"/>
-                                    <color key="titleShadowColor" systemColor="systemOrangeColor"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0h2-F2-MT3">
                                 <rect key="frame" x="181.5" y="433" width="51" height="30"/>
-                                <color key="backgroundColor" name="AccentColor"/>
+                                <color key="backgroundColor" systemColor="quaternaryLabelColor"/>
                                 <state key="normal" title="Ajustes">
-                                    <color key="titleColor" systemColor="opaqueSeparatorColor"/>
+                                    <color key="titleColor" name="AccentColor"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jH2-6i-SZY">
+                                <rect key="frame" x="188" y="343" width="39" height="30"/>
+                                <color key="backgroundColor" systemColor="quaternaryLabelColor"/>
+                                <state key="normal" title="Jugar">
+                                    <color key="titleColor" name="AccentColor"/>
+                                    <color key="titleShadowColor" systemColor="systemBackgroundColor"/>
                                 </state>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="jH2-6i-SZY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="287" id="4Qy-vO-v7d"/>
                             <constraint firstItem="0h2-F2-MT3" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Dus-Ue-uzt"/>
                             <constraint firstItem="jH2-6i-SZY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="188" id="kjY-Nt-G19"/>
-                            <constraint firstItem="0h2-F2-MT3" firstAttribute="top" secondItem="jH2-6i-SZY" secondAttribute="bottom" constant="72" id="uUW-e7-6PE"/>
+                            <constraint firstItem="0h2-F2-MT3" firstAttribute="top" secondItem="jH2-6i-SZY" secondAttribute="bottom" constant="60" id="uUW-e7-6PE"/>
                             <constraint firstItem="0h2-F2-MT3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xRy-e6-1ic"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jH2-6i-SZY" secondAttribute="trailing" constant="187" id="ygh-rS-BXr"/>
                         </constraints>
@@ -49,21 +48,90 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="141" y="124"/>
+            <point key="canvasLocation" x="-633" y="157"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="0lB-ct-jUG">
+            <objects>
+                <viewController id="bQN-ti-WPZ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jkk-ph-CP8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="YBn-QT-c2P" userLabel="Velocidad">
+                                <rect key="frame" x="79" y="413" width="256" height="71"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Elige la velocidad de las imágenes: " borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s57-WI-tuZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="256" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="6Wl-1x-mr7">
+                                        <rect key="frame" x="0.0" y="40" width="256" height="32"/>
+                                        <segments>
+                                            <segment title="Lento"/>
+                                            <segment title="Medio"/>
+                                            <segment title="Rápido"/>
+                                        </segments>
+                                    </segmentedControl>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="m2e-qC-25z" userLabel="Dificultad">
+                                <rect key="frame" x="103" y="274" width="209" height="71"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Elige la dificultad del juego: " borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xAX-GW-r89">
+                                        <rect key="frame" x="0.0" y="0.0" width="209" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Hdz-FT-PhC">
+                                        <rect key="frame" x="0.0" y="40" width="209" height="32"/>
+                                        <segments>
+                                            <segment title="Fácil"/>
+                                            <segment title="Medio"/>
+                                            <segment title="Difícil"/>
+                                        </segments>
+                                    </segmentedControl>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W9k-Ne-DW8">
+                                <rect key="frame" x="157" y="559" width="100" height="30"/>
+                                <color key="backgroundColor" systemColor="quaternaryLabelColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="3jp-wJ-cfL"/>
+                                    <constraint firstAttribute="height" constant="30" id="drl-tY-JiR"/>
+                                </constraints>
+                                <state key="normal" title="Volver"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="612-Tr-SvN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="m2e-qC-25z" firstAttribute="leading" secondItem="612-Tr-SvN" secondAttribute="leading" constant="12" id="0XS-2e-gd6"/>
+                            <constraint firstItem="W9k-Ne-DW8" firstAttribute="centerX" secondItem="YBn-QT-c2P" secondAttribute="centerX" id="F0b-n9-dKK"/>
+                            <constraint firstItem="612-Tr-SvN" firstAttribute="trailing" secondItem="YBn-QT-c2P" secondAttribute="trailing" constant="79" id="PFz-3n-sJr"/>
+                            <constraint firstItem="YBn-QT-c2P" firstAttribute="leading" secondItem="612-Tr-SvN" secondAttribute="leading" constant="79" id="Pgv-3Y-nvk"/>
+                            <constraint firstItem="W9k-Ne-DW8" firstAttribute="top" secondItem="YBn-QT-c2P" secondAttribute="bottom" constant="75" id="Pjp-bD-VZZ"/>
+                            <constraint firstItem="YBn-QT-c2P" firstAttribute="top" secondItem="m2e-qC-25z" secondAttribute="bottom" constant="70" id="ZMg-mW-kAL"/>
+                            <constraint firstItem="m2e-qC-25z" firstAttribute="top" secondItem="612-Tr-SvN" secondAttribute="top" constant="228" id="bhD-jT-yEx"/>
+                            <constraint firstItem="612-Tr-SvN" firstAttribute="trailing" secondItem="m2e-qC-25z" secondAttribute="trailing" constant="193" id="xf0-b1-evc"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XaI-oa-wFs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="628.98550724637687" y="-131.25"/>
         </scene>
     </scenes>
     <resources>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="quaternaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.17999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
