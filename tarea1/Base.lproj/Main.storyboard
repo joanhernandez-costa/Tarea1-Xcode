@@ -200,7 +200,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="iUn-fK-41t"/>
                     <connections>
-                        <outlet property="userNameTextField" destination="vrp-Or-87m" id="3Dm-9g-71d"/>
+                        <outlet property="cardTimeSegmentedControl" destination="6Wl-1x-mr7" id="C8a-wV-q8v"/>
+                        <outlet property="numberOfCardsSegmentedControl" destination="Hdz-FT-PhC" id="iri-RE-bh0"/>
+                        <outlet property="userNameTextField" destination="vrp-Or-87m" id="jFs-A4-E3k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XaI-oa-wFs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
