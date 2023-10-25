@@ -94,11 +94,12 @@
                     </view>
                     <connections>
                         <outlet property="showCardsImageView" destination="HRH-OS-hgT" id="8bc-KU-f2m"/>
+                        <segue destination="Gxb-jg-2cX" kind="show" identifier="toChooseCardsView" destinationCreationSelector="toChooseCardsView:" id="fAN-pb-71J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gv3-ay-pbT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="325" y="567"/>
+            <point key="canvasLocation" x="354" y="567"/>
         </scene>
         <!--Game Settings View Controller-->
         <scene sceneID="0lB-ct-jUG">
@@ -211,7 +212,7 @@
             <objects>
                 <collectionViewController id="Gxb-jg-2cX" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ZKE-D1-wlA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wjm-O5-Y37">
@@ -235,6 +236,7 @@
                             <outlet property="delegate" destination="Gxb-jg-2cX" id="A5G-a9-g4b"/>
                         </connections>
                     </collectionView>
+                    <navigationItem key="navigationItem" id="YC0-yT-sbW"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kFt-MO-hOj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
