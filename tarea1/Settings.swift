@@ -1,10 +1,10 @@
 import Foundation
 import UIKit
 
-class Settings {
+class Settings: Codable {
     
-    var cardTime: Float = 0.0
-    var numberOfCards: Int = 0
+    public var cardTime: Float = 0.0
+    public var numberOfCards: Int = 0
     
     init(cardTime: Float, numberOfCards: Int) {
         self.cardTime = cardTime
