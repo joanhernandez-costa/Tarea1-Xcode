@@ -13,13 +13,4 @@ class Game: Codable {
         self.durationOfGame = durationOfGame
         self.dateOfTheGame = dateOfTheGame
     }
-    
-    //Poner este método en la clase donde se guarde una partida: Game
-    func getCurrentShortDate() -> String {
-        let todaysDate = NSDate()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy"
-        
-        return dateFormatter.string(from: todaysDate as Date)
-    }
 }

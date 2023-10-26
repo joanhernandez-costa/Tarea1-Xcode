@@ -13,7 +13,7 @@ class GameSettingsViewController: UIViewController {
     }
     
     static var currentSettings: Settings = Settings(cardTime: 1, numberOfCards: 6)
-    var userName: String = "Jugador"
+    static var userName: String = "Jugador"
     
     @IBAction func numberOfCardsSegmentControlAction(_ sender: UISegmentedControl) {
         GameSettingsViewController.currentSettings.numberOfCards = Int(sender.titleForSegment(at: sender.selectedSegmentIndex)!)!
@@ -24,10 +24,9 @@ class GameSettingsViewController: UIViewController {
     }
     
     @IBAction func acceptSettingsButtonPressed(_ sender: UIButton) {
-        userName = userNameTextField.text!
-        SaveLoad.saveUserName(userName: userName)
-        //SaveLoad.saveSettings(settings: currentSettings)
-        //Esta línea no funciona como quiero porque la variable currentSettings es estática.
+        GameSettingsViewController.userName = userNameTextField.text!
+        SaveLoad.saveUserName(userName: GameSettingsViewController.userName)
+        SaveLoad.saveSettings(cardTimeSelectedIndex: cardTimeSegmentedControl.selectedSegmentIndex, numberOfCards: numberOfCardsSegmentedControl.selectedSegmentIndex)
     }
     
     func setLastValues() {
