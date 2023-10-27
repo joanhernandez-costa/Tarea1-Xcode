@@ -24,7 +24,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let gameSettings: Settings = GameSettingsViewController.currentSettings
+        let gameSettings: Settings = SaveLoad.readSettings()
         
         for i in Range(uncheckedBounds: (0, gameSettings.numberOfCards)) {
             GameViewController.indices.append(i)

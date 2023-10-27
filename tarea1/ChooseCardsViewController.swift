@@ -1,23 +1,27 @@
 import UIKit
 import SpriteKit
 
-let settings: Settings = GameSettingsViewController.currentSettings
+let settings: Settings = SaveLoad.readSettings()
 var images: [UIImage] = GameViewController.images
 
 class ChooseCardsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet var imagesCollectionView: UICollectionView!
+    @IBOutlet weak var timerLabel: UILabel!
     
     var timer: Timer = Timer()
     
     var cardOrder: [Int] = GameViewController.indices
     var userGuessOrder: [Int] = []
     
+    var isSelected: [Bool] = [false, false, false, false, false, false, false, false, false, false, false, false]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 120, height: 120)
+        layout.minimumLineSpacing = CGFloat(10.0)
         imagesCollectionView.collectionViewLayout = layout
         
         imagesCollectionView.allowsSelection = true
@@ -25,6 +29,8 @@ class ChooseCardsViewController: UIViewController, UICollectionViewDataSource, U
         imagesCollectionView.delegate = self
         
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        
+        timerLabel.text = getDurationOfTheGame()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -32,18 +38,29 @@ class ChooseCardsViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCollectionViewCell
+        let cellID = isSelected[indexPath.item] ? "selectedImageCell" : "imageCell"
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! ImageCollectionViewCell
+        
         cell.collectionViewCellImageView.image = images[indexPath.item]
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        userGuessOrder.append(indexPath.item)
+        if !isSelected[indexPath.item] {
+            userGuessOrder.append(indexPath.item)
+            isSelected.insert(true, at: indexPath.item)
+            collectionView.reloadItems(at: [indexPath])
+        }
+        print(userGuessOrder)
+        print("==========")
     }
     
-    @IBAction func onAcceptGuessButtonPressed(_ sender: Any) {
+    @IBAction func onAcceptGuessButtonPressed(_ sender: UIButton) {
         
         SaveLoad.saveGame(userName: GameSettingsViewController.userName, score: calculateScore(), durationOfGame: getDurationOfTheGame(), dateOfTheGame: getCurrentShortDate())
+        
+        performSegue(withIdentifier: "toYourScoreView", sender: nil)
     }
     
     var seconds: Int = 0
@@ -56,11 +73,16 @@ class ChooseCardsViewController: UIViewController, UICollectionViewDataSource, U
         } else {
             seconds += 1
         }
+        timerLabel.text = getDurationOfTheGame()
     }
     
-    func getDurationOfTheGame() -> Float {
+    func getDurationOfTheGame() -> String {
     
-        return "0" + String(minutes) + ":" + String(seconds)
+        if seconds < 10 {
+            return "0" + String(minutes) + ":0" + String(seconds)
+        } else {
+            return "0" + String(minutes) + ":" + String(seconds)
+        }
     }
     
     func calculateScore() -> Float {
@@ -70,7 +92,8 @@ class ChooseCardsViewController: UIViewController, UICollectionViewDataSource, U
                 score += 1
             }
         }
-        return (score + Float(settings.numberOfCards)) / settings.cardTime
+        return ((score + Float(settings.numberOfCards)) / settings.cardTime) - Float(seconds)
+        
     }
     
     func getCurrentShortDate() -> String {

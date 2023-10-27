@@ -14,7 +14,7 @@ class YourScoreViewController: UIViewController {
         
         userNameLabel.text = game.userName
         scoreLabel.text = String(game.score)
-        gameDurationLabel.text = String(game.durationOfGame)
+        gameDurationLabel.text = game.durationOfGame
         gameDateLabel.text = game.dateOfTheGame
     }
 
