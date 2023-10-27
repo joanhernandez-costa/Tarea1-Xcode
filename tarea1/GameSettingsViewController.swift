@@ -2,28 +2,32 @@ import UIKit
 
 class GameSettingsViewController: UIViewController {
     
+    //Referencias a los SegmentedControl y TextField para recoger información en el momento indicado
     @IBOutlet weak var cardTimeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var numberOfCardsSegmentedControl: UISegmentedControl!
     @IBOutlet weak var userNameTextField: UITextField!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setLastValues()
     }
     
+    //Variables currentSettings y userName, accesibles desde otras clases para usar la información almacenada.
     var currentSettings: Settings = SaveLoad.readSettings()
-    //static var currentSettings: Settings = Settings(cardTime: 0.3, numberOfCards: 12)
     static var userName: String = "Jugador"
     
+    //Se ejecuta cada vez que el SegmentedControl del número de cartas cambia de segmento seleccionado
     @IBAction func numberOfCardsSegmentControlAction(_ sender: UISegmentedControl) {
         currentSettings.numberOfCards = Int(sender.titleForSegment(at: sender.selectedSegmentIndex)!)!
     }
     
+    //Se ejecuta cada vez que el SegmentedControl del tiempo de carta cambia de segmento seleccionado.
     @IBAction func cardTimeSegmentControlAction(_ sender: UISegmentedControl) {
         currentSettings.cardTime = Float(sender.titleForSegment(at: sender.selectedSegmentIndex)!)!
     }
     
+    //Se ejecuta cuando se pulsa el botón aceptar. Se guarda el nombre de usuario introducido, los indices del segmento seleccionado y el valor del segmento seleccionado
     @IBAction func acceptSettingsButtonPressed(_ sender: UIButton) {
         GameSettingsViewController.userName = userNameTextField.text!
         SaveLoad.saveUserName(userName: GameSettingsViewController.userName)
@@ -32,6 +36,7 @@ class GameSettingsViewController: UIViewController {
         SaveLoad.saveSettings(cardTime: currentSettings.cardTime, numberOfCards: currentSettings.numberOfCards)
     }
     
+    //Carga el nombre y los settings introducidos en la última partida
     func setLastValues() {
         let lastSettings: [Int] = SaveLoad.readSettingsIndex() ?? [0, 0]
         let lastUserName: String = SaveLoad.readUserName() ?? "Jugador"

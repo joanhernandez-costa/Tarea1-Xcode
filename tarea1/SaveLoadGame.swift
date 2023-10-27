@@ -2,6 +2,7 @@ import Foundation
 
 class SaveLoad {
     
+    //Guarda partida, recibiendo los parámetros del obejeto Game por separado
     static func saveGame(userName: String, score: Float, durationOfGame: String, dateOfTheGame: String) {
         let game: Game = Game(userName: userName, score: score, durationOfGame: durationOfGame, dateOfTheGame: dateOfTheGame)
         let encoder = JSONEncoder()
@@ -10,6 +11,7 @@ class SaveLoad {
         }
     }
     
+    //Devuelve objeto Game ya creado.
     static func readGame() -> Game {
         let data = UserDefaults.standard.object(forKey: "gameData") as! Data
         let decoder = JSONDecoder()
@@ -20,6 +22,7 @@ class SaveLoad {
         return defaultGame
     }
     
+    //Guarda los settings introducidos, con los parámetros por separado.
     static func saveSettings(cardTime: Float, numberOfCards: Int) {
         let settings: Settings = Settings(cardTime: cardTime, numberOfCards: numberOfCards)
         let enconder = JSONEncoder()
@@ -28,6 +31,7 @@ class SaveLoad {
         }
     }
     
+    //Devuelve objeto Settings ya creado.
     static func readSettings() -> Settings {
         let data = UserDefaults.standard.object(forKey: "gameSettings") as! Data
         let decoder = JSONDecoder()
@@ -38,11 +42,13 @@ class SaveLoad {
         return defaultSettings
     }
     
+    //Guarda los índices de los segmentos seleccionados en vista GameSettings
     static func saveSettingsIndex(cardTimeSelectedIndex: Int, numberOfCardsIndex: Int) {
         UserDefaults.standard.setValue(cardTimeSelectedIndex, forKey: "cardTimeSelectedIndex")
         UserDefaults.standard.setValue(numberOfCardsIndex, forKey: "numberOfCardsSelectedIndex")
     }
     
+    //Devuelve un array de índices. [0] = cardTime, [1] = numberOfCards
     static func readSettingsIndex() -> [Int]? {
         return [UserDefaults.standard.integer(forKey: "cardTimeSelectedIndex"), UserDefaults.standard.integer(forKey: "numberOfCardsSelectedIndex")]
     }

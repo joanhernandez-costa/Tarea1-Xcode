@@ -2,6 +2,7 @@ import UIKit
 
 class GameViewController: UIViewController {
     
+    //Array de imágenes con las que trabajar.
     static let images: [UIImage] = [UIImage(named: "avestruz")!,
                             UIImage(named: "gato")!,
                             UIImage(named: "leon")!,
@@ -15,6 +16,7 @@ class GameViewController: UIViewController {
                             UIImage(named: "aguila")!,
                             UIImage(named: "tortuga")!]
     
+    //Almacena los índices de las imágenes que se van a mostrar en el juego.
     static var indices: [Int] = []
     
     @IBOutlet weak var showCardsImageView: UIImageView!
@@ -24,8 +26,10 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Cargar Settings de la partida anterior.
         let gameSettings: Settings = SaveLoad.readSettings()
         
+        //Introducir en la lsita de índices solo valores entre 0 y número de cartas. Después se "baraja" la lista para mostrar orden aleatorio.
         for i in Range(uncheckedBounds: (0, gameSettings.numberOfCards)) {
             GameViewController.indices.append(i)
         }
@@ -34,6 +38,7 @@ class GameViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: Double(gameSettings.cardTime), target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
     }
 
+    //Recorrer el array de imágenes mostrando cada tiempo de carta las imágenes que corresponden a la lista de índices.
     var i: Int = 0
     @objc func fireTimer() {
         

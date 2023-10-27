@@ -11,6 +11,7 @@ class Settings: Codable {
         self.numberOfCards = numberOfCards
     }
     
+    //Constructor vacío para inicializar la variable settings vacía.
     init() {
         self.cardTime = 0.0
         self.numberOfCards = 0
