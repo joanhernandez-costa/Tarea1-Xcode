@@ -15,7 +15,7 @@ class SaveLoad {
     static func readGame() -> Game {
         let data = UserDefaults.standard.object(forKey: "gameData") as! Data
         let decoder = JSONDecoder()
-        var defaultGame = Game(userName: "", score: 0, durationOfGame: "", dateOfTheGame: "dd-MM-yyyy")
+        var defaultGame = Game(userName: "", score: 0.0, durationOfGame: "", dateOfTheGame: "dd-MM-yyyy")
         if let game = try? decoder.decode(Game.self, from: data) {
             defaultGame = game
         }

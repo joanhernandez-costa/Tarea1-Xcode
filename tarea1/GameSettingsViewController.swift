@@ -15,7 +15,7 @@ class GameSettingsViewController: UIViewController {
     
     //Variables currentSettings y userName, accesibles desde otras clases para usar la información almacenada.
     var currentSettings: Settings = SaveLoad.readSettings()
-    static var userName: String = "Jugador"
+    var userName: String = SaveLoad.readUserName()!
     
     //Se ejecuta cada vez que el SegmentedControl del número de cartas cambia de segmento seleccionado
     @IBAction func numberOfCardsSegmentControlAction(_ sender: UISegmentedControl) {
@@ -29,8 +29,8 @@ class GameSettingsViewController: UIViewController {
     
     //Se ejecuta cuando se pulsa el botón aceptar. Se guarda el nombre de usuario introducido, los indices del segmento seleccionado y el valor del segmento seleccionado
     @IBAction func acceptSettingsButtonPressed(_ sender: UIButton) {
-        GameSettingsViewController.userName = userNameTextField.text!
-        SaveLoad.saveUserName(userName: GameSettingsViewController.userName)
+        userName = userNameTextField.text!
+        SaveLoad.saveUserName(userName: userName)
         
         SaveLoad.saveSettingsIndex(cardTimeSelectedIndex: cardTimeSegmentedControl.selectedSegmentIndex, numberOfCardsIndex: numberOfCardsSegmentedControl.selectedSegmentIndex)
         SaveLoad.saveSettings(cardTime: currentSettings.cardTime, numberOfCards: currentSettings.numberOfCards)
