@@ -13,4 +13,6 @@ class Game: Codable {
         self.durationOfGame = durationOfGame
         self.dateOfTheGame = dateOfTheGame
     }
+    
+    
 }

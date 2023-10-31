@@ -26,7 +26,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Cargar Settings de la partida anterior.
+        //Cargar Settings seleccinados en Settings View.
         let gameSettings: Settings = SaveLoad.readSettings()
         
         //Introducir en la lsita de índices solo valores entre 0 y número de cartas. Después se "baraja" la lista para mostrar orden aleatorio.
