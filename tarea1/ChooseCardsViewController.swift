@@ -3,7 +3,11 @@ import SpriteKit
 
 let settings: Settings = SaveLoad.readSettings()
 let userName: String = SaveLoad.readUserName()!
-var images: [UIImage] = GameViewController.images
+let images: [UIImage] = GameViewController.images
+let cardOrder: [Int] = GameViewController.indices
+var userGuessOrder: [Int] = []
+//cardOrder: el orden en el que se han mostrado las cartas en la anterior pantalla.
+//userGuessOrder: el orden que introduce el usuario pulsando las imágenes.
 
 class ChooseCardsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -13,11 +17,6 @@ class ChooseCardsViewController: UIViewController, UICollectionViewDataSource, U
     @IBOutlet weak var timerLabel: UILabel!
     
     var timer: Timer = Timer()
-    
-    //cardOrder: el orden en el que se han mostrado las cartas en la anterior pantalla.
-    //userGuessOrder: el orden que introduce el usuario pulsando las imágenes.
-    var cardOrder: [Int] = GameViewController.indices
-    var userGuessOrder: [Int] = []
     
     //Lista de booleanos para comprobar si cada elemento de la lista de imágenes ya ha sido seleccionado o no.
     var isSelected: [Bool] = [false, false, false, false, false, false, false, false, false, false, false, false]
@@ -77,6 +76,7 @@ class ChooseCardsViewController: UIViewController, UICollectionViewDataSource, U
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCollectionViewCell
             
             cell.CellImageView.image = images[userGuessOrder[indexPath.item]]
+            
             return cell
         }
     }
@@ -101,7 +101,7 @@ class ChooseCardsViewController: UIViewController, UICollectionViewDataSource, U
     @IBAction func onAcceptGuessButtonPressed(_ sender: UIButton) {
         
         if userGuessOrder.count == cardOrder.count {
-            SaveLoad.saveGame(userName: userName, score: calculateScore(), durationOfGame: getDurationOfTheGame(), dateOfTheGame: getCurrentShortDate())
+            SaveLoad.saveGame(userName: userName, score: Game.calculateScore(timeProgressView: timeProgressView, userGuessOrder: userGuessOrder, cardOrder: cardOrder), durationOfGame: getDurationOfTheGame(), dateOfTheGame: getCurrentShortDate())
             performSegue(withIdentifier: "toYourScoreView", sender: nil)
         } else {
             sender.backgroundColor = .red
@@ -136,31 +136,6 @@ class ChooseCardsViewController: UIViewController, UICollectionViewDataSource, U
         } else {
             return "0" + String(minutes) + ":" + String(seconds)
         }
-    }
-    
-    //Función para calcular puntuación. Función utilizada: (n * p) / (v + t)
-    func calculateScore() -> Float {
-        //MODIFICAR FUNCIÓN.
-        /*
-        n = número de cartas
-        p = número de aciertos
-        v = velocidad a la que pasan las cartas
-        t = porcentaje de tiempo límite ocupado */
-        
-        let numberOfCards: Float = Float(settings.numberOfCards)
-        var rightGuesses: Float = 0.0
-        let cardTime: Float = settings.cardTime
-        let durationOfTheGame: Float = timeProgressView.progress
-        
-        let maxScorePossible = (numberOfCards * 2) / cardTime + 0 //144
-        for i in 0..<settings.numberOfCards {
-            if userGuessOrder[i] == cardOrder[i] {
-                rightGuesses += 1.0
-            }
-        }
-        
-        let score = (numberOfCards * rightGuesses) / (cardTime + durationOfTheGame)
-        return round((10 * (score / Float(maxScorePossible))) * 100) / 100
     }
     
     //Devuelve String parseado de la fecha actual.
