@@ -22,13 +22,13 @@ class Game: Codable {
         v = velocidad a la que pasan las cartas
         t = porcentaje de tiempo límite ocupado */
         
-        let numberOfCards: Float = Float(settings.numberOfCards)
+        let numberOfCards: Float = Float(currentSettings.numberOfCards)
         var rightGuesses: Float = 0.0
-        let cardTime: Float = settings.cardTime
+        let cardTime: Float = currentSettings.cardTime
         let durationOfTheGame: Float = timeProgressView.progress
         
         let maxScorePossible = (numberOfCards * 2) / cardTime + 0 //144
-        for i in 0..<settings.numberOfCards {
+        for i in 0..<currentSettings.numberOfCards {
             if userGuessOrder[i] == cardOrder[i] {
                 rightGuesses += 1.0
             }

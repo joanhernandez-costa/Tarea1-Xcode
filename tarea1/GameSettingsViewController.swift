@@ -1,5 +1,9 @@
 import UIKit
 
+//Variables currentSettings y userName, accesibles desde otras clases para usar la información almacenada.
+var currentSettings: Settings = SaveLoad.readSettings()
+var userName: String = SaveLoad.readUserName()!
+
 class GameSettingsViewController: UIViewController {
     
     //Referencias a los SegmentedControl y TextField para recoger información en el momento indicado
@@ -13,10 +17,6 @@ class GameSettingsViewController: UIViewController {
         
         setLastValues()
     }
-    
-    //Variables currentSettings y userName, accesibles desde otras clases para usar la información almacenada.
-    var currentSettings: Settings = SaveLoad.readSettings()
-    var userName: String = SaveLoad.readUserName()!
     
     //Se ejecuta cada vez que el SegmentedControl del número de cartas cambia de segmento seleccionado
     @IBAction func numberOfCardsSegmentControlAction(_ sender: UISegmentedControl) {

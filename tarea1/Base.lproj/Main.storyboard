@@ -69,10 +69,10 @@
             </objects>
             <point key="canvasLocation" x="-465" y="567"/>
         </scene>
-        <!--Game View Controller-->
+        <!--Show Cards View Controller-->
         <scene sceneID="2QO-El-Pde">
             <objects>
-                <viewController id="wP0-ZG-2F8" customClass="GameViewController" customModule="tarea1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wP0-ZG-2F8" customClass="ShowCardsViewController" customModule="tarea1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qyC-F5-0hL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -206,34 +206,10 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="0do-Go-d5r">
-                                <rect key="frame" x="57" y="762" width="300" height="94.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0E-R7-oIh">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oMn-J4-Var">
-                                        <rect key="frame" x="0.0" y="40.5" width="300" height="4"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="IOL-b4-oyo"/>
-                                        </constraints>
-                                    </progressView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dd9-nx-8OX">
-                                        <rect key="frame" x="0.0" y="64.5" width="300" height="30"/>
-                                        <state key="normal" title="Aceptar"/>
-                                        <connections>
-                                            <action selector="onAcceptGuessButtonPressed:" destination="DVh-7w-YeL" eventType="touchUpInside" id="R7g-gv-mgc"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UUH-Q2-DiW" userLabel="UserGuessOrderCollectionView">
                                 <rect key="frame" x="20" y="672" width="374" height="80"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3me-Sy-TdR">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3me-Sy-TdR">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -241,7 +217,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Veq-3a-Bf4">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <rect key="frame" x="0.0" y="-24" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="WFZ-5e-zHJ">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -250,21 +226,41 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" id="0do-Go-d5r">
+                                <rect key="frame" x="20" y="782" width="374" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0E-R7-oIh">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="17.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oMn-J4-Var">
+                                        <rect key="frame" x="0.0" y="37.5" width="374" height="3"/>
+                                    </progressView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dd9-nx-8OX">
+                                        <rect key="frame" x="0.0" y="60.5" width="374" height="19.5"/>
+                                        <state key="normal" title="Aceptar"/>
+                                        <connections>
+                                            <action selector="onAcceptGuessButtonPressed:" destination="DVh-7w-YeL" eventType="touchUpInside" id="R7g-gv-mgc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="j4j-Fm-v5O"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="chE-fG-LrY" firstAttribute="top" secondItem="j4j-Fm-v5O" secondAttribute="top" id="6JR-ca-Bbc"/>
                             <constraint firstItem="UUH-Q2-DiW" firstAttribute="centerX" secondItem="k0D-G9-tZx" secondAttribute="centerX" id="77g-G0-vFC"/>
-                            <constraint firstItem="0do-Go-d5r" firstAttribute="centerX" secondItem="k0D-G9-tZx" secondAttribute="centerX" id="ADg-Wm-GLX"/>
                             <constraint firstItem="j4j-Fm-v5O" firstAttribute="trailing" secondItem="UUH-Q2-DiW" secondAttribute="trailing" constant="20" id="Bwx-zC-EuH"/>
                             <constraint firstItem="chE-fG-LrY" firstAttribute="leading" secondItem="j4j-Fm-v5O" secondAttribute="leading" constant="20" id="MH8-OU-qvp"/>
-                            <constraint firstItem="0do-Go-d5r" firstAttribute="top" secondItem="chE-fG-LrY" secondAttribute="bottom" constant="100" id="Zjf-2y-RYw"/>
                             <constraint firstItem="UUH-Q2-DiW" firstAttribute="leading" secondItem="j4j-Fm-v5O" secondAttribute="leading" constant="20" id="c7D-dG-fRV"/>
                             <constraint firstItem="j4j-Fm-v5O" firstAttribute="bottom" secondItem="chE-fG-LrY" secondAttribute="bottom" constant="200" id="dko-o9-ASF"/>
                             <constraint firstItem="chE-fG-LrY" firstAttribute="trailing" secondItem="j4j-Fm-v5O" secondAttribute="trailing" constant="-20" id="iJH-Eo-dwy"/>
-                            <constraint firstItem="0do-Go-d5r" firstAttribute="top" secondItem="UUH-Q2-DiW" secondAttribute="bottom" constant="10" id="sU0-Lm-J6q"/>
                             <constraint firstItem="UUH-Q2-DiW" firstAttribute="top" secondItem="chE-fG-LrY" secondAttribute="bottom" constant="10" id="t8N-h6-cgY"/>
+                            <constraint firstItem="0do-Go-d5r" firstAttribute="top" secondItem="UUH-Q2-DiW" secondAttribute="bottom" constant="30" id="ufn-fU-Fgd"/>
                         </constraints>
                     </view>
                     <connections>

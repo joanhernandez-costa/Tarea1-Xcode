@@ -14,8 +14,11 @@
 		39482ED22AE998A700FFCD7B /* SaveLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39482ED12AE998A700FFCD7B /* SaveLoad.swift */; };
 		39482ED52AE998BD00FFCD7B /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39482ED42AE998BD00FFCD7B /* Game.swift */; };
 		395865BB2AF1242D009117B9 /* TimerManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395865BA2AF1242D009117B9 /* TimerManagement.swift */; };
-		398C18352AE840BE00D61376 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398C18342AE840BE00D61376 /* GameViewController.swift */; };
+		398BB8DB2AF5115B007A9095 /* TimeManagementDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398BB8DA2AF5115B007A9095 /* TimeManagementDelegate.swift */; };
+		398BB8DF2AF521EB007A9095 /* CollectionViewLayoutConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398BB8DE2AF521EB007A9095 /* CollectionViewLayoutConfigurator.swift */; };
+		398C18352AE840BE00D61376 /* ShowCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398C18342AE840BE00D61376 /* ShowCardsViewController.swift */; };
 		399231C12AF2B98600DAC47E /* CollectionViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399231C02AF2B98600DAC47E /* CollectionViewManager.swift */; };
+		399231C42AF2D96F00DAC47E /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399231C32AF2D96F00DAC47E /* Utils.swift */; };
 		39A7EFB92AEBDE29001173A3 /* ScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7EFB82AEBDE29001173A3 /* ScoreTableViewCell.swift */; };
 		39A7EFBD2AEBDF84001173A3 /* ScoreRecordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7EFBC2AEBDF84001173A3 /* ScoreRecordTableViewController.swift */; };
 		39A7EFC12AEBF880001173A3 /* TODO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7EFC02AEBF880001173A3 /* TODO.swift */; };
@@ -35,8 +38,11 @@
 		39482ED12AE998A700FFCD7B /* SaveLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLoad.swift; sourceTree = "<group>"; };
 		39482ED42AE998BD00FFCD7B /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		395865BA2AF1242D009117B9 /* TimerManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManagement.swift; sourceTree = "<group>"; };
-		398C18342AE840BE00D61376 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		398BB8DA2AF5115B007A9095 /* TimeManagementDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManagementDelegate.swift; sourceTree = "<group>"; };
+		398BB8DE2AF521EB007A9095 /* CollectionViewLayoutConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutConfigurator.swift; sourceTree = "<group>"; };
+		398C18342AE840BE00D61376 /* ShowCardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCardsViewController.swift; sourceTree = "<group>"; };
 		399231C02AF2B98600DAC47E /* CollectionViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewManager.swift; sourceTree = "<group>"; };
+		399231C32AF2D96F00DAC47E /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		39A7EFB82AEBDE29001173A3 /* ScoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTableViewCell.swift; sourceTree = "<group>"; };
 		39A7EFBC2AEBDF84001173A3 /* ScoreRecordTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreRecordTableViewController.swift; sourceTree = "<group>"; };
 		39A7EFC02AEBF880001173A3 /* TODO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TODO.swift; sourceTree = "<group>"; };
@@ -83,14 +89,17 @@
 				39EF7F052ADFDDAE00D9C9F2 /* AppDelegate.swift */,
 				39EF7F072ADFDDAE00D9C9F2 /* SceneDelegate.swift */,
 				393993942AE7EE2C003CC9DF /* GameSettingsViewController.swift */,
-				398C18342AE840BE00D61376 /* GameViewController.swift */,
+				398C18342AE840BE00D61376 /* ShowCardsViewController.swift */,
 				392069812AEA98CC00AD79ED /* ChooseCardsViewController.swift */,
 				393993982AE7F178003CC9DF /* Settings.swift */,
 				395865BA2AF1242D009117B9 /* TimerManagement.swift */,
 				399231C02AF2B98600DAC47E /* CollectionViewManager.swift */,
+				398BB8DE2AF521EB007A9095 /* CollectionViewLayoutConfigurator.swift */,
 				39A7EFB82AEBDE29001173A3 /* ScoreTableViewCell.swift */,
 				39A7EFBC2AEBDF84001173A3 /* ScoreRecordTableViewController.swift */,
 				39E225332AEADE6D0090A39A /* YourScoreViewController.swift */,
+				398BB8DA2AF5115B007A9095 /* TimeManagementDelegate.swift */,
+				399231C32AF2D96F00DAC47E /* Utils.swift */,
 				39A7EFC02AEBF880001173A3 /* TODO.swift */,
 				392069842AEA9D8E00AD79ED /* ImageCollectionViewCell.swift */,
 				39482ED12AE998A700FFCD7B /* SaveLoad.swift */,
@@ -178,8 +187,11 @@
 				39EF7F062ADFDDAE00D9C9F2 /* AppDelegate.swift in Sources */,
 				39EF7F082ADFDDAE00D9C9F2 /* SceneDelegate.swift in Sources */,
 				39A7EFC12AEBF880001173A3 /* TODO.swift in Sources */,
+				398BB8DF2AF521EB007A9095 /* CollectionViewLayoutConfigurator.swift in Sources */,
 				39482ED22AE998A700FFCD7B /* SaveLoad.swift in Sources */,
-				398C18352AE840BE00D61376 /* GameViewController.swift in Sources */,
+				398C18352AE840BE00D61376 /* ShowCardsViewController.swift in Sources */,
+				399231C42AF2D96F00DAC47E /* Utils.swift in Sources */,
+				398BB8DB2AF5115B007A9095 /* TimeManagementDelegate.swift in Sources */,
 				392069852AEA9D8E00AD79ED /* ImageCollectionViewCell.swift in Sources */,
 				393993992AE7F178003CC9DF /* Settings.swift in Sources */,
 				39482ED52AE998BD00FFCD7B /* Game.swift in Sources */,
