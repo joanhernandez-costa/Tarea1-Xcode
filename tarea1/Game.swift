@@ -38,3 +38,14 @@ class Game: Codable {
         return round((10 * (score / Float(maxScorePossible))) * 100) / 100
     }
 }
+
+class GameData: Codable {
+    var id: String = ""
+    var name: String
+    var data: Game
+    
+    init(name: String, data: Game) {
+        self.name = name
+        self.data = data
+    }
+}

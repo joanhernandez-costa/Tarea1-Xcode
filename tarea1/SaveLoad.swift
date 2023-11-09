@@ -3,8 +3,7 @@ import Foundation
 class SaveLoad {
     
     //Guarda partida, recibiendo los parámetros del obejeto Game por separado
-    static func saveGame(userName: String, score: Float, durationOfGame: String, dateOfTheGame: String) {
-        let game: Game = Game(userName: userName, score: score, durationOfGame: durationOfGame, dateOfTheGame: dateOfTheGame)
+    static func saveGame(game: Game) {
         let encoder = JSONEncoder()
         if let data = try? encoder.encode(game) {
             UserDefaults.standard.setValue(data, forKey: "gameData")

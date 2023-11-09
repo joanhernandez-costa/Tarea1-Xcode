@@ -5,12 +5,10 @@ class ScoreRecordTableViewController: UITableViewController {
 
     @IBOutlet var scoreRecordTableView: UITableView!
     
-    static var scoreRecord: [Game] = [Game(userName: "Jugador", score: 0.0, durationOfGame: "Tiempo", dateOfTheGame: "Fecha")]
+    static var scoreRecord: [GameData] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            
-        ScoreRecordTableViewController.scoreRecord.append(SaveLoad.readGame())
         
         scoreRecordTableView.dataSource = self
         scoreRecordTableView.delegate = self
@@ -24,10 +22,10 @@ class ScoreRecordTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "scoreRecordCell", for: indexPath) as! ScoreTableViewCell
         let gameInPosition = ScoreRecordTableViewController.scoreRecord[indexPath.item]
         
-        cell.userNameTableCellLabel.text = gameInPosition.userName
-        cell.scoreTableCellLabel.text = String(gameInPosition.score)
-        cell.durationTableCellLabel.text = gameInPosition.durationOfGame
-        cell.dateTableCellLabel.text = gameInPosition.dateOfTheGame
+        cell.userNameTableCellLabel.text = gameInPosition.data.userName
+        cell.scoreTableCellLabel.text = String(gameInPosition.data.score)
+        cell.durationTableCellLabel.text = gameInPosition.data.durationOfGame
+        cell.dateTableCellLabel.text = gameInPosition.data.dateOfTheGame
 
         return cell
     }

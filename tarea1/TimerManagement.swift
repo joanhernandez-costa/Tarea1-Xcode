@@ -4,7 +4,7 @@ import Foundation
 class TimeManagement {
     
     var timer: Timer = Timer()
-    weak var delegate: TimeManagementDelegate?
+    var delegate: TimeManagementDelegate?
     
     init() {}
     

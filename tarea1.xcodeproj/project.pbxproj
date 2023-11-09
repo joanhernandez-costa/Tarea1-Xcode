@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		391A558D2AFB844500E3A308 /* ApiCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391A558C2AFB844500E3A308 /* ApiCalls.swift */; };
 		392069822AEA98CC00AD79ED /* ChooseCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392069812AEA98CC00AD79ED /* ChooseCardsViewController.swift */; };
 		392069852AEA9D8E00AD79ED /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392069842AEA9D8E00AD79ED /* ImageCollectionViewCell.swift */; };
 		393993952AE7EE2C003CC9DF /* GameSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393993942AE7EE2C003CC9DF /* GameSettingsViewController.swift */; };
@@ -22,6 +23,7 @@
 		39A7EFB92AEBDE29001173A3 /* ScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7EFB82AEBDE29001173A3 /* ScoreTableViewCell.swift */; };
 		39A7EFBD2AEBDF84001173A3 /* ScoreRecordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7EFBC2AEBDF84001173A3 /* ScoreRecordTableViewController.swift */; };
 		39A7EFC12AEBF880001173A3 /* TODO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A7EFC02AEBF880001173A3 /* TODO.swift */; };
+		39B359BC2AFA478500B6E515 /* CollectionViewManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B359BB2AFA478500B6E515 /* CollectionViewManagerDelegate.swift */; };
 		39E225342AEADE6D0090A39A /* YourScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E225332AEADE6D0090A39A /* YourScoreViewController.swift */; };
 		39EF7F062ADFDDAE00D9C9F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF7F052ADFDDAE00D9C9F2 /* AppDelegate.swift */; };
 		39EF7F082ADFDDAE00D9C9F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EF7F072ADFDDAE00D9C9F2 /* SceneDelegate.swift */; };
@@ -31,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		391A558C2AFB844500E3A308 /* ApiCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCalls.swift; sourceTree = "<group>"; };
 		392069812AEA98CC00AD79ED /* ChooseCardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCardsViewController.swift; sourceTree = "<group>"; };
 		392069842AEA9D8E00AD79ED /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		393993942AE7EE2C003CC9DF /* GameSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingsViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +49,7 @@
 		39A7EFB82AEBDE29001173A3 /* ScoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTableViewCell.swift; sourceTree = "<group>"; };
 		39A7EFBC2AEBDF84001173A3 /* ScoreRecordTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreRecordTableViewController.swift; sourceTree = "<group>"; };
 		39A7EFC02AEBF880001173A3 /* TODO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TODO.swift; sourceTree = "<group>"; };
+		39B359BB2AFA478500B6E515 /* CollectionViewManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewManagerDelegate.swift; sourceTree = "<group>"; };
 		39E225332AEADE6D0090A39A /* YourScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourScoreViewController.swift; sourceTree = "<group>"; };
 		39EF7F022ADFDDAE00D9C9F2 /* tarea1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tarea1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39EF7F052ADFDDAE00D9C9F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,8 +99,10 @@
 				395865BA2AF1242D009117B9 /* TimerManagement.swift */,
 				399231C02AF2B98600DAC47E /* CollectionViewManager.swift */,
 				398BB8DE2AF521EB007A9095 /* CollectionViewLayoutConfigurator.swift */,
+				391A558C2AFB844500E3A308 /* ApiCalls.swift */,
 				39A7EFB82AEBDE29001173A3 /* ScoreTableViewCell.swift */,
 				39A7EFBC2AEBDF84001173A3 /* ScoreRecordTableViewController.swift */,
+				39B359BB2AFA478500B6E515 /* CollectionViewManagerDelegate.swift */,
 				39E225332AEADE6D0090A39A /* YourScoreViewController.swift */,
 				398BB8DA2AF5115B007A9095 /* TimeManagementDelegate.swift */,
 				399231C32AF2D96F00DAC47E /* Utils.swift */,
@@ -184,6 +190,7 @@
 			files = (
 				39E225342AEADE6D0090A39A /* YourScoreViewController.swift in Sources */,
 				393993952AE7EE2C003CC9DF /* GameSettingsViewController.swift in Sources */,
+				391A558D2AFB844500E3A308 /* ApiCalls.swift in Sources */,
 				39EF7F062ADFDDAE00D9C9F2 /* AppDelegate.swift in Sources */,
 				39EF7F082ADFDDAE00D9C9F2 /* SceneDelegate.swift in Sources */,
 				39A7EFC12AEBF880001173A3 /* TODO.swift in Sources */,
@@ -191,6 +198,7 @@
 				39482ED22AE998A700FFCD7B /* SaveLoad.swift in Sources */,
 				398C18352AE840BE00D61376 /* ShowCardsViewController.swift in Sources */,
 				399231C42AF2D96F00DAC47E /* Utils.swift in Sources */,
+				39B359BC2AFA478500B6E515 /* CollectionViewManagerDelegate.swift in Sources */,
 				398BB8DB2AF5115B007A9095 /* TimeManagementDelegate.swift in Sources */,
 				392069852AEA9D8E00AD79ED /* ImageCollectionViewCell.swift in Sources */,
 				393993992AE7F178003CC9DF /* Settings.swift in Sources */,

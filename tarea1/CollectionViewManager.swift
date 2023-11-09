@@ -7,13 +7,13 @@ class CollectionViewManager: NSObject, UICollectionViewDataSource, UICollectionV
     var collectionView: UICollectionView
     var contentData: [Int]
     var tag: Int
-    var drawnAt: UIViewController
+    var delegate: CollectionViewManagerDelegate
     
-    init(collectionView: UICollectionView, contentData: [Int], tag: Int, drawnAt: UIViewController) {
+    init(collectionView: UICollectionView, contentData: [Int], tag: Int, drawnAt: UIViewController, delegate: CollectionViewManagerDelegate) {
         self.collectionView = collectionView
         self.contentData = contentData
         self.tag = tag
-        self.drawnAt = drawnAt
+        self.delegate = delegate
     }
     
     func drawCollectionView() {
@@ -42,8 +42,6 @@ class CollectionViewManager: NSObject, UICollectionViewDataSource, UICollectionV
         collectionView.allowsSelection = true
         collectionView.dataSource = self
         collectionView.delegate = self
-
-        print("Configuring collectionView with tag \(collectionView.tag)")
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -57,17 +55,20 @@ class CollectionViewManager: NSObject, UICollectionViewDataSource, UICollectionV
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         var cellID = ""
+        var cell = ImageCollectionViewCell()
         switch collectionView.tag {
         case 0:
             cellID = isSelected[indexPath.item] ? "selectedImageCell" : "imageCell"
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! ImageCollectionViewCell
+            cell.imageCellImageView.image = images[indexPath.item]
         case 1:
             cellID = "imageCell"
+            cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! ImageCollectionViewCell
+            cell.userGuessCellImageView.image = images[contentData[indexPath.item]]
         default:
             return UICollectionViewCell()
         }
-                    
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! ImageCollectionViewCell
-        cell.CellImageView.image = images[contentData[indexPath.item]]
+        
         return cell
     }
     
@@ -78,21 +79,14 @@ class CollectionViewManager: NSObject, UICollectionViewDataSource, UICollectionV
         case 0:
             if !isSelected[indexPath.item] {
                 isSelected[indexPath.item] = true
-                userGuessOrder.append(indexPath.item)
-                if let otherCollectionView = drawnAt.view.viewWithTag(1) as? UICollectionView {
-                    otherCollectionView.reloadData()
-                }
-                collectionView.reloadItems(at: [indexPath])
             }
+            delegate.collectionViewUpdated(collectionView: collectionView, indexPath: indexPath)
         case 1:
-            contentData.remove(at: indexPath.item)
-            collectionView.deleteItems(at: [indexPath])
             isSelected[indexPath.item] = false
-            if let otherCollectionView = drawnAt.view.viewWithTag(0) as? UICollectionView {
-                otherCollectionView.reloadData()
-            }
+            delegate.collectionViewUpdated(collectionView: collectionView, indexPath: indexPath)
         default:
             return
         }
+        print(isSelected)
     }
 }
