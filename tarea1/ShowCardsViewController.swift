@@ -21,7 +21,7 @@ class ShowCardsViewController: UIViewController, TimeManagementDelegate {
     
     @IBOutlet weak var showCardsImageView: UIImageView!
     
-    //var timer: Timer = Timer()
+    //Gestión del tiempo, empezar a contar el tiempo, parar, contar cada x segundos.
     let timeManager = TimeManagement()
 
     override func viewDidLoad() {
@@ -42,7 +42,7 @@ class ShowCardsViewController: UIViewController, TimeManagementDelegate {
         timeManager.timerOn()
     }
 
-    //Recorrer el array de imágenes mostrando cada tiempo de carta las imágenes que corresponden a la lista de índices.
+    //Recorrer el array de imágenes mostrando cada tiempo de carta las imágenes que corresponden a la lista de índices. Se ejecuta cada cardTime segundos.
     var i: Int = 0
     func timeStep(currentTime: String, progressUntilTimeLimit: Float) {
         if i == cardOrder.count {

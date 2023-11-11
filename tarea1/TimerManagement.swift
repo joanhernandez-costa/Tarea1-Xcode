@@ -8,15 +8,18 @@ class TimeManagement {
     
     init() {}
     
+    //Configura un timer que se ejecute cada cardTime segundos
     func timerOn() {
         timer = Timer.scheduledTimer(timeInterval: TimeInterval(currentSettings.cardTime), target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
         seconds = 0; minutes = 0
     }
     
+    //Configura un timer que se ejecute en un intervalo deseado.
     func timerOnEachSeconds(interval: Double) {
         timer = Timer.scheduledTimer(timeInterval: interval, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
+    //Configura un timer que se ejecuta una vez después de esperar una cantidad de segundos.
     func waitSeconds(interval: Double) {
         timer = Timer.scheduledTimer(timeInterval: interval, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: false)
     }

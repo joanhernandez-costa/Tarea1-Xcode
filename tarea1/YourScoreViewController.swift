@@ -14,19 +14,21 @@ class YourScoreViewController: UIViewController {
         super.viewDidLoad()
         
         setScoreData()
-        /*
+        
+        //Muestra un StackView con las imágenes en el orden en que se han mostrado
         for i in 0 ..< currentSettings.numberOfCards {
             let imageView = setComprobationImages(order: cardOrder, i: i)
             cardOrderComprobationStack.addArrangedSubview(imageView)
         }
         
+        //Muestra un StackView con las imágenes en el orden que ha elegido el usuario.
         for i in 0 ..< currentSettings.numberOfCards {
             let imageView = setComprobationImages(order: userGuessOrder, i: i)
             userOrderComprobationStack.addArrangedSubview(imageView)
         }
-         */
     }
 
+    //Muestra todos los datos de tu última partida.
     func setScoreData() {
         let game: Game = SaveLoad.readGame()
         
@@ -36,8 +38,10 @@ class YourScoreViewController: UIViewController {
         gameDateLabel.text = game.dateOfTheGame
     }
     
+    //Define qué imágenes se ven en los stackView de comprobación
     func setComprobationImages(order: [Int], i: Int) -> UIImageView{
         let imageView = UIImageView(image: images[order[i]])
+        
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.sizeToFit()

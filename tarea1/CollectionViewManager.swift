@@ -16,6 +16,7 @@ class CollectionViewManager: NSObject, UICollectionViewDataSource, UICollectionV
         self.delegate = delegate
     }
     
+    //Configura el CollectionView:
     func drawCollectionView() {
         collectionViewSetUp()
         let layout = setLayoutConfigurator().configureLayout(for: collectionView)
@@ -25,6 +26,7 @@ class CollectionViewManager: NSObject, UICollectionViewDataSource, UICollectionV
         collectionView.reloadData()
     }
     
+    //Devuelve un layout con los parámetros elegidos.
     func setLayoutConfigurator() -> CollectionViewLayoutConfigurator {
         if tag == 0 {
             collectionView.backgroundColor = .blue
@@ -35,7 +37,7 @@ class CollectionViewManager: NSObject, UICollectionViewDataSource, UICollectionV
         }
     }
     
-    //Personaliza los parámetros del CollectionView (espacio entre las celdas, número de columnas...)
+    //Configura dataSource y Delegate
     func collectionViewSetUp() {
         
         collectionView.tag = tag

@@ -1,26 +1,15 @@
 
 import Foundation
 
-var ids: [String] = []
+//Lista de ids para recuperar todas las partidas guardadas
+var ids: [String] = SaveLoad.readIdsList()
 
 class ApiCalls {
     let baseURL = URL(string: "https://api.restful-api.dev/objects?")
     
     init(){}
     
-    func getGame() {
-        DispatchQueue.global().async {
-            do {
-                let data = try Data(contentsOf: self.baseURL!)
-                DispatchQueue.main.async {
-                    //
-                }
-            } catch {
-                
-            }
-        }
-    }
-    
+    //Sube la última partida jugada.
     func postGame(game: GameData) {
         let data = try! JSONEncoder().encode(game)
         var request = URLRequest(url: baseURL!)
@@ -34,12 +23,14 @@ class ApiCalls {
             do {
                 let gameDataJSON = try JSONDecoder().decode(GameData.self, from: data!)
                 ids.append(gameDataJSON.id)
+                SaveLoad.saveIdsList(ids: ids)
             } catch {
                 print("Error parseo JSON")
             }
         }.resume()
     }
     
+    //Devuelve todas las partidas guardadas.
     func getGames() {
         print("Get Games")
         let url = URL(string: generateURL())
@@ -58,6 +49,7 @@ class ApiCalls {
         }.resume()
     }
     
+    //Parsea baseURL añadiendo los ids como parámetros.
     func generateURL() -> String {
         var url = "https://api.restful-api.dev/objects?"
         for id in ids {

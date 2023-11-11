@@ -15,6 +15,7 @@ class CollectionViewLayoutConfigurator {
         self.verticalSpacingBetweenCells = verticalSpacingBetweenCells
     }
     
+    //Introduce todos los parámetros elegidos en el layout y lo devuelve.
     func configureLayout(for collectionView: UICollectionView) -> UICollectionViewFlowLayout {
         switch collectionView.tag {
         case 0:
