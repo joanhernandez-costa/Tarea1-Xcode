@@ -10,6 +10,7 @@
 		391A558D2AFB844500E3A308 /* ApiCalls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391A558C2AFB844500E3A308 /* ApiCalls.swift */; };
 		392069822AEA98CC00AD79ED /* ChooseCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392069812AEA98CC00AD79ED /* ChooseCardsViewController.swift */; };
 		392069852AEA9D8E00AD79ED /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392069842AEA9D8E00AD79ED /* ImageCollectionViewCell.swift */; };
+		39260CBE2B079CDF00A06421 /* OrderCriteria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39260CBD2B079CDF00A06421 /* OrderCriteria.swift */; };
 		393993952AE7EE2C003CC9DF /* GameSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393993942AE7EE2C003CC9DF /* GameSettingsViewController.swift */; };
 		393993992AE7F178003CC9DF /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393993982AE7F178003CC9DF /* Settings.swift */; };
 		39482ED22AE998A700FFCD7B /* SaveLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39482ED12AE998A700FFCD7B /* SaveLoad.swift */; };
@@ -36,6 +37,7 @@
 		391A558C2AFB844500E3A308 /* ApiCalls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCalls.swift; sourceTree = "<group>"; };
 		392069812AEA98CC00AD79ED /* ChooseCardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCardsViewController.swift; sourceTree = "<group>"; };
 		392069842AEA9D8E00AD79ED /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		39260CBD2B079CDF00A06421 /* OrderCriteria.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCriteria.swift; sourceTree = "<group>"; };
 		393993942AE7EE2C003CC9DF /* GameSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingsViewController.swift; sourceTree = "<group>"; };
 		393993982AE7F178003CC9DF /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		39482ED12AE998A700FFCD7B /* SaveLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLoad.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				395865BA2AF1242D009117B9 /* TimerManagement.swift */,
 				399231C02AF2B98600DAC47E /* CollectionViewManager.swift */,
 				398BB8DE2AF521EB007A9095 /* CollectionViewLayoutConfigurator.swift */,
+				39260CBD2B079CDF00A06421 /* OrderCriteria.swift */,
 				391A558C2AFB844500E3A308 /* ApiCalls.swift */,
 				39A7EFB82AEBDE29001173A3 /* ScoreTableViewCell.swift */,
 				39A7EFBC2AEBDF84001173A3 /* ScoreRecordTableViewController.swift */,
@@ -206,6 +209,7 @@
 				395865BB2AF1242D009117B9 /* TimerManagement.swift in Sources */,
 				39A7EFBD2AEBDF84001173A3 /* ScoreRecordTableViewController.swift in Sources */,
 				39A7EFB92AEBDE29001173A3 /* ScoreTableViewCell.swift in Sources */,
+				39260CBE2B079CDF00A06421 /* OrderCriteria.swift in Sources */,
 				392069822AEA98CC00AD79ED /* ChooseCardsViewController.swift in Sources */,
 				399231C12AF2B98600DAC47E /* CollectionViewManager.swift in Sources */,
 			);

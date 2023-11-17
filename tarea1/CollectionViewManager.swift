@@ -89,6 +89,5 @@ class CollectionViewManager: NSObject, UICollectionViewDataSource, UICollectionV
         default:
             return
         }
-        print(userGuessOrder)
     }
 }
