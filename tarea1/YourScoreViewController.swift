@@ -40,11 +40,11 @@ class YourScoreViewController: UIViewController {
     
     //Define qué imágenes se ven en los stackView de comprobación
     func setComprobationImages(order: [Int], i: Int) -> UIImageView{
-        let imageView = UIImageView(image: images[order[i]])
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         
+        imageView.image = images[order[i]]
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.sizeToFit()
         
         return imageView
     }

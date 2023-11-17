@@ -444,10 +444,10 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="96G-HZ-hAj">
                                         <rect key="frame" x="0.0" y="50.5" width="300" height="195.5"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fed-Ns-Izm">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Fed-Ns-Izm">
                                                 <rect key="frame" x="0.0" y="0.0" width="300" height="88"/>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Mi-fm-VuS">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="9Mi-fm-VuS">
                                                 <rect key="frame" x="0.0" y="108" width="300" height="87.5"/>
                                             </stackView>
                                         </subviews>
@@ -489,7 +489,8 @@
                                         <rect key="frame" x="0.0" y="388" width="300" height="30"/>
                                         <state key="normal" title="Aceptar"/>
                                         <connections>
-                                            <segue destination="fbi-vS-I0W" kind="presentation" modalPresentationStyle="fullScreen" id="o5L-oZ-hJ5"/>
+                                            <action selector="toScoreRecordView:" destination="b1y-I5-GlM" eventType="touchUpInside" id="pwl-FS-iQL"/>
+                                            <segue destination="fbi-vS-I0W" kind="presentation" modalPresentationStyle="fullScreen" id="fPS-16-4jI"/>
                                         </connections>
                                     </button>
                                 </subviews>

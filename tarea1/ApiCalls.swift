@@ -11,6 +11,7 @@ class ApiCalls {
     
     //Sube la última partida jugada.
     func postGame(game: GameData) {
+        print("POSTING GAME...")
         let data = try! JSONEncoder().encode(game)
         var request = URLRequest(url: baseURL!)
         request.httpMethod = "POST"
@@ -32,7 +33,7 @@ class ApiCalls {
     
     //Devuelve todas las partidas guardadas.
     func getGames() {
-        print("Get Games")
+        print("GETTING GAMES...")
         let url = URL(string: generateURL())
         URLSession.shared.dataTask(with: url!) { (data, response, error) in
             let json = String(data: data!, encoding: .utf8)
