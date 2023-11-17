@@ -40,7 +40,7 @@ class ApiCalls {
             print(json ?? "Error en getGames")
             do {
                 let gameDataJSON = try JSONDecoder().decode([GameData].self, from: data!)
-                ScoreRecordTableViewController.scoreRecord = gameDataJSON
+                ScoreRecordTableViewController.scoreRecordToShow = gameDataJSON
                 /*
                 DispatchQueue.main.async {
                     ScoreRecordTableViewController().scoreRecordTableView.reloadData()

@@ -9,7 +9,9 @@ class ScoreRecordTableViewController: UIViewController, UITableViewDataSource, U
     @IBOutlet var headerTitlesButtons: [UIButton]!
     
     //Lista para almacenar todas las partidas jugadas.
-    static var scoreRecord: [GameData] = []
+    static var scoreRecordToShow: [GameData] = []
+    static var sortedScoreRecord: [GameData] = ScoreRecordTableViewController.scoreRecordToShow
+    let orderCriteria = OrderCriteria()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,13 +24,13 @@ class ScoreRecordTableViewController: UIViewController, UITableViewDataSource, U
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ScoreRecordTableViewController.scoreRecord.count
+        return ScoreRecordTableViewController.scoreRecordToShow.count
     }
     
     //Se ejecuta cada vez que se quiere dibujar una celda, se crea la celda y se rellena con el contenido de cada partida.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "scoreRecordCell", for: indexPath) as! ScoreTableViewCell
-        let gameInPosition = ScoreRecordTableViewController.scoreRecord[indexPath.item]
+        let gameInPosition = ScoreRecordTableViewController.scoreRecordToShow[indexPath.item]
         
         cell.userNameTableCellLabel.text = gameInPosition.data.userName
         cell.scoreTableCellLabel.text = String(gameInPosition.data.score)
@@ -38,22 +40,29 @@ class ScoreRecordTableViewController: UIViewController, UITableViewDataSource, U
         return cell
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 30
+    }
+    
     @IBAction func onTitleButtonsTapped(_ sender: UIButton) {
-        print("tapped on '" + String((sender.titleLabel?.text!)!) + "' button")
-        let orderCriteria = OrderCriteria()
         
-        switch sender.titleLabel?.text! {
+        let titlePressed = sender.titleLabel?.text!
+        let indexOfTitlePressed = headerTitlesButtons.firstIndex(of: sender)!
+        
+        switch titlePressed {
         case "Jugador":
-            ScoreRecordTableViewController.scoreRecord = orderCriteria.orderByScore()
+            ScoreRecordTableViewController.scoreRecordToShow = orderCriteria.orderByUserName(indexOfTitlePressed: indexOfTitlePressed)
         case "Puntuacion":
-            print("")
+            ScoreRecordTableViewController.scoreRecordToShow = orderCriteria.orderByScore(indexOfTitlePressed: indexOfTitlePressed)
         case "Tiempo":
-            print("")
+            ScoreRecordTableViewController.scoreRecordToShow = orderCriteria.orderByTime(indexOfTitlePressed: indexOfTitlePressed)
         case "Fecha":
-            print("")
+            ScoreRecordTableViewController.scoreRecordToShow = orderCriteria.orderByDate(indexOfTitlePressed: indexOfTitlePressed)
         default:
-            print("")
+            print("Error en criterio de ordenación")
         }
+        print(titlePressed!)
+        scoreRecordTableView.reloadData()
     }
     
 }
