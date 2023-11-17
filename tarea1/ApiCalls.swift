@@ -41,9 +41,11 @@ class ApiCalls {
             do {
                 let gameDataJSON = try JSONDecoder().decode([GameData].self, from: data!)
                 ScoreRecordTableViewController.scoreRecord = gameDataJSON
+                /*
                 DispatchQueue.main.async {
                     ScoreRecordTableViewController().scoreRecordTableView.reloadData()
                 }
+ */
             } catch {
                 print("Error en parseo JSON")
             }

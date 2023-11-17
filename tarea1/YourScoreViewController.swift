@@ -14,6 +14,7 @@ class YourScoreViewController: UIViewController {
         super.viewDidLoad()
         
         setScoreData()
+        ApiCalls().getGames()
         
         //Muestra un StackView con las imágenes en el orden en que se han mostrado
         for i in 0 ..< currentSettings.numberOfCards {
@@ -32,15 +33,16 @@ class YourScoreViewController: UIViewController {
     func setScoreData() {
         let game: Game = SaveLoad.readGame()
         
-        userNameLabel.text = game.userName
-        scoreLabel.text = String(game.score)
-        gameDurationLabel.text = game.durationOfGame
-        gameDateLabel.text = game.dateOfTheGame
+        userNameLabel.text = "Nombre de usuario: " + game.userName
+        scoreLabel.text = "Puntuación: " + String(game.score)
+        gameDurationLabel.text = "Duración de la partida: " + game.durationOfGame
+        gameDateLabel.text = "Partida jugada día: " + game.dateOfTheGame
     }
     
     //Define qué imágenes se ven en los stackView de comprobación
     func setComprobationImages(order: [Int], i: Int) -> UIImageView{
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        let cellWidth = cardOrderComprobationStack.bounds.width - CGFloat((currentSettings.numberOfCards - 1) * 10)
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: cellWidth, height: cellWidth))
         
         imageView.image = images[order[i]]
         imageView.contentMode = .scaleAspectFit

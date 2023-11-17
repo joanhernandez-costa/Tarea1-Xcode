@@ -44,8 +44,8 @@ class GameSettingsViewController: UIViewController {
     
     //Carga el nombre y los settings introducidos en la última partida
     func setLastValues() {
-        let lastSettings: [Int] = SaveLoad.readSettingsIndex() ?? [0, 0, 0]
-        let lastUserName: String = SaveLoad.readUserName() ?? "Jugador"
+        let lastSettings: [Int] = SaveLoad.readSettingsIndex()!
+        let lastUserName: String = SaveLoad.readUserName()!
         
         userNameTextField.text = lastUserName
         cardTimeSegmentedControl.selectedSegmentIndex = lastSettings[0]

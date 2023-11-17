@@ -3,10 +3,10 @@ import UIKit
 
 class Game: Codable {
     
-    var userName: String = ""
-    var score: Float = 0.0
-    var durationOfGame: String = ""
-    var dateOfTheGame: String = ""
+    var userName: String
+    var score: Float
+    var durationOfGame: String
+    var dateOfTheGame: String
     
     init(userName: String, score: Float, durationOfGame: String, dateOfTheGame: String) {
         self.userName = userName
